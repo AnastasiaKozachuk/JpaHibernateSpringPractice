@@ -2,6 +2,7 @@ package com.jpa.dao.impl;
 
 import com.jpa.dao.TeacherDAO;
 import com.jpa.model.Teacher;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,6 +23,7 @@ public class TeacherDAOImpl implements TeacherDAO {
     }
 
     @Override
+    @Cacheable(cacheNames = "teacherCache")
     public Teacher getTeacher(int id) {
         return entityManager.find(Teacher.class, id);
     }

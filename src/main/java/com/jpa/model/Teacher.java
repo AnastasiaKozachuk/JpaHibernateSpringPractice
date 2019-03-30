@@ -18,11 +18,22 @@ public class Teacher {
     @Column(name = "lastname", nullable = false, columnDefinition = "varchar(50)")
     private String lastName;
 
-    @Column(name = "birth_date", nullable = false, columnDefinition="DATE")
+    @Column(name = "birth_date", nullable = false, columnDefinition = "DATE")
     private LocalDate birthDate;
 
-    @OneToOne(mappedBy = "teacher", cascade=CascadeType.ALL)
+    @OneToOne(mappedBy = "teacher", cascade = CascadeType.ALL)
     private CellPhone cellPhone;
+
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "teacherId=" + teacherId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", birthDate=" + birthDate +
+                ", cellPhone=" + cellPhone +
+                '}';
+    }
 
     public CellPhone getCellPhone() {
         return cellPhone;

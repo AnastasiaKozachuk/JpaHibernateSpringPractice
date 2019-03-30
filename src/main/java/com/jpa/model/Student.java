@@ -7,6 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "students")
+@Cacheable
 public class Student {
 
     @Id
@@ -25,6 +26,16 @@ public class Student {
     @JoinColumn(name = "group_fk", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Group group;
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "studentId=" + studentId +
+                ", pib='" + pib + '\'' +
+                ", address=" + address +
+                ", group=" + group +
+                '}';
+    }
 
     public Group getGroup() {
         return group;
