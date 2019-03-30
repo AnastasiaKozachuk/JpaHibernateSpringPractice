@@ -28,6 +28,16 @@ public class Main {
         teacher = teacherWorker.getTeacher(2);
         System.out.println(teacher);
 
+       /* Teacher teacherToAdd = new Teacher();
+        teacherToAdd.setFirstName("Alla");
+        teacherToAdd.setLastName("Romanova");
+        teacherToAdd.setBirthDate(LocalDate.now());
+
+        teacherWorker.addTeacher(teacherToAdd);*/
+
+        teacher = teacherWorker.getTeacher(4);
+        System.out.println(teacher);
+
         System.out.println("\nDynamic query: \n");
 
         for (Student student1 : studentWorker.findAllDynamicQuery()) {
@@ -51,7 +61,6 @@ public class Main {
         for (Student student1 : studentWorker.findAllNativeQuery()) {
             System.out.println(student1);
         }
-
 
 
         context.close();
